@@ -1,5 +1,0 @@
-# Resources
-
-- [Hoffman2 Cluster](https://www.hoffman2.idre.ucla.edu)
-
-- [Jupyter Hub](https://jupyter.idre.ucla.edu)
