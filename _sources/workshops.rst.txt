@@ -1,0 +1,96 @@
+Workshops
+===============
+
+For course description and to register, please visit: https://idre.ucla.edu/events
+
+2022 Summer
+
+- Learning Scikit-Learn
+- High Performance Machine Learning Using Scikit-Learn
+
+
+
+2022 Spring
+
+- Introduction to Google Cloud Platform. Part 1: Overview
+- Introduction to Google Cloud Platform. Part 2: Compute engine and practice
+- Boosting Python for High Performance Data Analytics (1) Interpreter War
+- Boosting Python for High Performance Data Analytics (2) DataFrame Game
+- Data Visualization with Python I: Plotting Fundamentals
+- Data Visualization with Python II: Making Interactive Plots and Widgets
+- Job Scheduling on Hoffman2 Cluster
+
+
+
+2022 Winter
+
+-   Version Control with Git
+-   Make and Makefiles
+-   Tips to run Matlab on Hoffman2 cluster
+-   Converting plots from Matlab to Python/matplotlib
+-   Practical Parallel Computing Part 1: Running MPI Programs
+-   Practical Parallel Computing Part 2: MPI Programming
+-   Practical Parallel Computing Part 3: Introduction to PETSc
+-   Learning Convolutional Neural Networks (1)
+-   Learning Convolutional Neural Networks (2)
+-   Learning Generative Adversarial Networks
+-   Scientific Visualization with Paraview
+
+2021 Fall
+
+-   Docker containerization: Fundamentals
+-   Docker containerization: Practices
+-   Introduction to SQL
+-   Job scheduling on Hoffman2 Cluster
+-   Using SQL with Python for Data Analysis
+-   Deep Learning, the Good, the Bad and the Ugly
+-   Learning Deep Learning Mechanics
+-   Learning PyTorch
+-   Learning Convolutional Neural Networks
+-   Common Data formats
+
+2021 Summer
+
+-   Introduction to the Linux Shell: Using the Command Line
+-   Introduction to the Linux Shell: Shell Scripting
+-   Workflow automation with continuous integration and deployment (CI/CD)
+-   Topics in Scientific Computing with Julia
+-   Data visualization from matlab to python matplotlib
+-   Learning Scikit-Learn: the basics
+-   Learning Scikit-Learn: advanced topics
+-   An In-Depth Introduction to Google Colab
+
+2021 Spring
+
+-   Data Visualization with Python I: Plotting Fundamentals
+-   Data Visualization with Python II: Making Interactive Plots and Widgets
+-   Singularity on Hoffman2: Using containers on HPC resources
+-   Package management in Julia
+-   High-Performance Data Science in Python (1) Interpreter War
+-   High-Performance Data Science in Python (2) DataFrame Game
+-   Data Visualization with Julia
+-   Introduction to Virtual machines and Containers
+
+2021 Winter
+
+-   Parallel computing using MPI and Julia
+-   Numerical computing using Julia
+-   Using Anaconda to mange packages on Hoffman2 Cluster
+-   Introduction to Virtual Machines and Containers
+-   Learning Scikit-Learn
+-   Numerical Computing with Python: Python Basics
+-   Numerical Computing with Python: Intro to Numpy, Scipy, and Pandas
+-   Numerical Computing with Python: Numerical Modeling
+
+2020 Fall
+
+-   Jupyter Advanced Topics
+-   Make and Makefiles
+-   Advanced Graphics with Matlab
+-   Learning Deep Learning with PyTorch (1) Introduction
+-   Learning Deep Learning with PyTorch (2) Mechanics of Learning
+-   Learning Deep Learning with PyTorch (3) Knowing PyTorch
+-   Learning Deep Learning with PyTorch (4) Convolutional Neural Networks
+-   Learning Deep Learning with PyTorch (5) Improving CNNs Performance
+-   Learning Deep Learning with PyTorch (6) Generative Adversarial Networks
+-   [Markdown for technical writing](https://github.com/schuang/markdown-for-technical-writing)
