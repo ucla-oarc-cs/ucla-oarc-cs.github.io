@@ -6,40 +6,40 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Posts</title>
+    <title>Virtual Memory Size of Launching RStudio on Hoffman2 Cluster</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
 </script>
 
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
 
 
   <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
-    <link rel="stylesheet" type="text/css" href="_static/cs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cs.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/design-tabs.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Building GCC compilers on an HPC cluster" href="blog/2020-05-20-building-gcc.html" />
-    <link rel="prev" title="Workshops" href="workshops.html" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interpretation of Wait Time in HPC Cluster Job Scheduling" href="2022-02-07-wait-time.html" />
+    <link rel="prev" title="Virtual Memory Consumption of Matlab Graphical User Interface on Hoffman2 Cluster" href="2020-06-08-matlab-vmem.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="None">
   </head>
@@ -60,13 +60,13 @@
   
 
 
-<a class="navbar-brand logo" href="index.html">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
   
-    <img src="_static/oarc-cs-logo.svg" class="logo__image only-light" alt="Logo image">
-    <img src="_static/oarc-cs-logo.svg" class="logo__image only-dark" alt="Logo image">
+    <img src="../_static/oarc-cs-logo.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/oarc-cs-logo.svg" class="logo__image only-dark" alt="Logo image">
   
   
 </a>
@@ -84,25 +84,25 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="index.html">
+ <a class="reference internal nav-link" href="../index.html">
   Home
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="workshops.html">
+ <a class="reference internal nav-link" href="../workshops.html">
   Workshops
  </a>
 </li>
 
 <li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
+ <a class="reference internal nav-link" href="../blog.html">
   Posts
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="resources.html">
+ <a class="reference internal nav-link" href="../resources.html">
   Resources
  </a>
 </li>
@@ -169,17 +169,29 @@
               
               <article class="bd-article" role="main">
                 
-  <section id="posts">
-<h1>Posts<a class="headerlink" href="#posts" title="Permalink to this headline">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="blog/2020-05-20-building-gcc.html">Building GCC compilers on an HPC cluster</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blog/2020-06-08-matlab-vmem.html">Virtual Memory Consumption of Matlab Graphical User Interface on Hoffman2 Cluster</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blog/2020-06-11-rstudio-vmem.html">Virtual Memory Size of Launching RStudio on Hoffman2 Cluster</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blog/2022-02-07-wait-time.html">Interpretation of Wait Time in HPC Cluster Job Scheduling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blog/2022-03-08-cloud-computing-enterprise-discount.html">Discount programs for commercial clouds</a></li>
-</ul>
+  <section id="virtual-memory-size-of-launching-rstudio-on-hoffman2-cluster">
+<h1>Virtual Memory Size of Launching RStudio on Hoffman2 Cluster<a class="headerlink" href="#virtual-memory-size-of-launching-rstudio-on-hoffman2-cluster" title="Permalink to this headline">#</a></h1>
+<p>2020-06-11</p>
+<p>We report that the virtual memory size of launching RStudio (version 1.1.456)
+is approximately 2.3GB (gigabytes) <em>without</em> loading any user data on
+Hoffman2 Cluster’s compute nodes.
+This is compared to RStudio version 0.98, which consumes approximately 1.6GB of virtual memory at launch time.
+The implication is that a job will have to
+request at least this much memory in order to launch RStudio successfully.</p>
+<p>We launched RStudio 1.1.456 distributed by Anaconda using the following
+commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source /u/local/Modules/default/init/bash
+$ module load anaconda3/2019.03
+$ source $CONDA_DIR/etc/profile.d/conda.sh
+$ conda activate rstudio
+$ rstudio
+</pre></div>
 </div>
+<p>The virtual memory size reading was from the <code class="docutils literal notranslate"><span class="pre">top</span></code> command. We have tested
+Rstudio on various CPU models, including Intel Gold (Skylake), Intel E5-2670
+and AMD-6136. The virtual memory size was approximately the same across
+different CPU models.</p>
+<p><img alt="" src="../_images/rstudio.png" /></p>
 </section>
 
 
@@ -195,7 +207,7 @@
   
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
 
 <footer class="bd-footer"><div class="bd-footer__inner container">
   
