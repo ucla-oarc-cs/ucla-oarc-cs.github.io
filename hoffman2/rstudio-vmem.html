@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7F4PVWBZ8T"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-7F4PVWBZ8T');
+            
+        </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtual Memory Size of Launching RStudio on Hoffman2 Cluster &mdash; UCLA OARC Computational Science Group Documentation Site</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+      <link rel="stylesheet" type="text/css" href="../_static/cs.css?v=c60e4502" />
+
+  
+    <link rel="canonical" href="https://hpc.oarc.ucla.edu/hoffman2/rstudio-vmem.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=7f41d439"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interpretation of Wait Time in HPC Cluster Job Scheduling" href="wait-time.html" />
+    <link rel="prev" title="Virtual Memory Consumption of Matlab Graphical User Interface on Hoffman2 Cluster" href="matlab-vmem.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/oarc-cs-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../workshops/index.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud Computing for HPC</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Hoffman2 Cluster</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="matlab-vmem.html">Virtual Memory Consumption of Matlab Graphical User Interface on Hoffman2 Cluster</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Virtual Memory Size of Launching RStudio on Hoffman2 Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wait-time.html">Interpretation of Wait Time in HPC Cluster Job Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../swe/index.html">Software Environment Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UCLA OARC Computational Science</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Hoffman2 Cluster</a></li>
+      <li class="breadcrumb-item active">Virtual Memory Size of Launching RStudio on Hoffman2 Cluster</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="virtual-memory-size-of-launching-rstudio-on-hoffman2-cluster">
+<h1>Virtual Memory Size of Launching RStudio on Hoffman2 Cluster<a class="headerlink" href="#virtual-memory-size-of-launching-rstudio-on-hoffman2-cluster" title="Link to this heading"></a></h1>
+<p>2020-06-11</p>
+<p>We report that the virtual memory size of launching RStudio (version 1.1.456)
+is approximately 2.3GB (gigabytes) <em>without</em> loading any user data on
+Hoffman2 Cluster’s compute nodes.
+This is compared to RStudio version 0.98, which consumes approximately 1.6GB of virtual memory at launch time.
+The implication is that a job will have to
+request at least this much memory in order to launch RStudio successfully.</p>
+<p>We launched RStudio 1.1.456 distributed by Anaconda using the following
+commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source /u/local/Modules/default/init/bash
+$ module load anaconda3/2019.03
+$ source $CONDA_DIR/etc/profile.d/conda.sh
+$ conda activate rstudio
+$ rstudio
+</pre></div>
+</div>
+<p>The virtual memory size reading was from the <code class="docutils literal notranslate"><span class="pre">top</span></code> command. We have tested
+Rstudio on various CPU models, including Intel Gold (Skylake), Intel E5-2670
+and AMD-6136. The virtual memory size was approximately the same across
+different CPU models.</p>
+<p><img alt="" src="../_images/rstudio.png" /></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="matlab-vmem.html" class="btn btn-neutral float-left" title="Virtual Memory Consumption of Matlab Graphical User Interface on Hoffman2 Cluster" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wait-time.html" class="btn btn-neutral float-right" title="Interpretation of Wait Time in HPC Cluster Job Scheduling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024. Maintained by UCLA OARC Computational Science Group.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+:root {
+   --pst-font-size-h1: 26px;
+   --pst-font-size-h2: 24px;
+   --pst-font-size-h3: 22px;
+}
+
+
+
+.bd-sidebar.no-sidebar {
+    border-right: 0;
+    max-width: 0;
+}
+
+h1, h2 {
+    color: var(--pst-color-text-base);
+}
+
+.toctree-wrapper li[class^=toctree-l]>a {
+    color: var(--pst-color-text-base);
+}
+
+
+a {
+    color: var(--pst-color-text-base);
+}
