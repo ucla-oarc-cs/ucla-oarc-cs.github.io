@@ -14,11 +14,11 @@
         </script>
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interpretation of Wait Time in HPC Cluster Job Scheduling &mdash; UCLA OARC Computational Science Group</title>
+  <title>Interpretation of Wait Time &mdash; UCLA OARC Computational Science Group</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-      <link rel="stylesheet" type="text/css" href="../_static/cs.css?v=c60e4502" />
+      <link rel="stylesheet" type="text/css" href="../_static/cs.css?v=40389b0d" />
 
   
     <link rel="canonical" href="https://hpc.oarc.ucla.edu/hoffman2/wait-time.html" />
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Software Environment Management" href="../swe/index.html" />
-    <link rel="prev" title="Virtual Memory Size of Launching RStudio on Hoffman2 Cluster" href="rstudio-vmem.html" /> 
+    <link rel="prev" title="RStudio Virtual Memory Size" href="rstudio-vmem.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -64,9 +64,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../workshops/index.html">Workshops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud Computing for HPC</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Hoffman2 Cluster</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="matlab-vmem.html">Virtual Memory Consumption of Matlab Graphical User Interface on Hoffman2 Cluster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rstudio-vmem.html">Virtual Memory Size of Launching RStudio on Hoffman2 Cluster</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Interpretation of Wait Time in HPC Cluster Job Scheduling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hoffman2-gpu.html">GPU Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlab-vmem.html">Matlab Virtual Memory Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rstudio-vmem.html">RStudio Virtual Memory Size</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Interpretation of Wait Time</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#scenario-1">Scenario 1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scenario-2">Scenario 2</a></li>
 </ul>
@@ -91,7 +92,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Hoffman2 Cluster</a></li>
-      <li class="breadcrumb-item active">Interpretation of Wait Time in HPC Cluster Job Scheduling</li>
+      <li class="breadcrumb-item active">Interpretation of Wait Time</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -100,8 +101,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="interpretation-of-wait-time-in-hpc-cluster-job-scheduling">
-<h1>Interpretation of Wait Time in HPC Cluster Job Scheduling<a class="headerlink" href="#interpretation-of-wait-time-in-hpc-cluster-job-scheduling" title="Link to this heading"></a></h1>
+  <section id="interpretation-of-wait-time">
+<h1>Interpretation of Wait Time<a class="headerlink" href="#interpretation-of-wait-time" title="Link to this heading"></a></h1>
 <p>2022-02-07</p>
 <p>The average wait time of the jobs on an HPC cluster is often defined
 simply as the average of the differences between submission times and
@@ -121,7 +122,7 @@ scenarios.</p>
 <h2>Scenario 1<a class="headerlink" href="#scenario-1" title="Link to this heading"></a></h2>
 <p>In this scenario, all 7 jobs are <strong>submitted at once</strong> on Day 1,
 illlustrated below:</p>
-<p><img alt="" src="../_images/wait-time-interpretation-a.png" /></p>
+<a class="reference internal image-reference" href="../_images/wait-time-interpretation-a.png"><img alt="../_images/wait-time-interpretation-a.png" class="align-center" src="../_images/wait-time-interpretation-a.png" style="width: 500px;" /></a>
 <p>On Day 1, job #1 starts and runs to completion at the end of the day. On
 Day 2, job #2 starts, and so on. One the 7th day, job #7 starts and runs
 to completion. The wait time for job #1 is 0 (since the compute node is
@@ -135,7 +136,7 @@ days (or (N-1)/2 for N jobs, N=7 here).</p>
 <p>In this scenario, the user submits one job per day (e.g. at the same
 time of a day): job #1 on Day 1, #2 on Day 2, and so on, as illustrated
 below:</p>
-<p><img alt="" src="../_images/wait-time-interpretation-b.png" /></p>
+<a class="reference internal image-reference" href="../_images/wait-time-interpretation-b.png"><img alt="../_images/wait-time-interpretation-b.png" class="align-center" src="../_images/wait-time-interpretation-b.png" style="width: 500px;" /></a>
 <p>On the 7th day, the user submits job #7. The cluster’s accounting
 records will show that all 7 jobs have zero wait time, because each job
 is able to start immediately after submission. Thefore, the average wait
@@ -147,7 +148,7 @@ time of these jobs would be zero.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="rstudio-vmem.html" class="btn btn-neutral float-left" title="Virtual Memory Size of Launching RStudio on Hoffman2 Cluster" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rstudio-vmem.html" class="btn btn-neutral float-left" title="RStudio Virtual Memory Size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../swe/index.html" class="btn btn-neutral float-right" title="Software Environment Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

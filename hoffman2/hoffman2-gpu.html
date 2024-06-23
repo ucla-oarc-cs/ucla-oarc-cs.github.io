@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7F4PVWBZ8T"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-7F4PVWBZ8T');
+            
+        </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPU Models &mdash; UCLA OARC Computational Science Group</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+      <link rel="stylesheet" type="text/css" href="../_static/cs.css?v=40389b0d" />
+
+  
+    <link rel="canonical" href="https://hpc.oarc.ucla.edu/hoffman2/hoffman2-gpu.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=7f41d439"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Matlab Virtual Memory Size" href="matlab-vmem.html" />
+    <link rel="prev" title="Hoffman2 Cluster" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/oarc-cs-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../workshops/index.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud Computing for HPC</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Hoffman2 Cluster</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GPU Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matlab-vmem.html">Matlab Virtual Memory Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rstudio-vmem.html">RStudio Virtual Memory Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wait-time.html">Interpretation of Wait Time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../swe/index.html">Software Environment Management</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UCLA OARC Computational Science</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Hoffman2 Cluster</a></li>
+      <li class="breadcrumb-item active">GPU Models</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gpu-models">
+<h1>GPU Models<a class="headerlink" href="#gpu-models" title="Link to this heading"></a></h1>
+<p>NVIDIA GPU nodes supporting CUDA 12.x</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>host</p></th>
+<th class="head"><p>GPU model</p></th>
+<th class="head"><p>Arch</p></th>
+<th class="head"><p>GPU RAM</p></th>
+<th class="head"><p>ECC</p></th>
+<th class="head"><p>nGPUs</p></th>
+<th class="head"><p>NVLink</p></th>
+<th class="head"><p>CC</p></th>
+<th class="head"><p>MPs</p></th>
+<th class="head"><p>cores/MP</p></th>
+<th class="head"><p>GPU driver</p></th>
+<th class="head"><p>CUDA driver</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>g5</p></td>
+<td><p>RTX 1080 Ti</p></td>
+<td><p>Pascal</p></td>
+<td><p>12 GB</p></td>
+<td><p>n</p></td>
+<td><p>2</p></td>
+<td><p>n</p></td>
+<td><p>6.1</p></td>
+<td><p>28</p></td>
+<td><p>128</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>g6</p></td>
+<td><p>RTX 2080 Ti</p></td>
+<td><p>Turing</p></td>
+<td><p>12 GB</p></td>
+<td><p>n</p></td>
+<td><p>2</p></td>
+<td><p>n</p></td>
+<td><p>7.5</p></td>
+<td><p>68</p></td>
+<td><p>64</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-even"><td><p>g7</p></td>
+<td><p>RTX 2080 Ti</p></td>
+<td><p>Turing</p></td>
+<td><p>12 GB</p></td>
+<td><p>n</p></td>
+<td><p>2</p></td>
+<td><p>n</p></td>
+<td><p>7.5</p></td>
+<td><p>68</p></td>
+<td><p>64</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>g8</p></td>
+<td><p>Tesla V100</p></td>
+<td><p>Volta</p></td>
+<td><p>32 GB</p></td>
+<td><p>y</p></td>
+<td><p>1</p></td>
+<td><p>n</p></td>
+<td><p>7.0</p></td>
+<td><p>80</p></td>
+<td><p>64</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-even"><td><p>g9</p></td>
+<td><p>Tesla V100</p></td>
+<td><p>Volta</p></td>
+<td><p>32 GB</p></td>
+<td><p>y</p></td>
+<td><p>1</p></td>
+<td><p>n</p></td>
+<td><p>7.0</p></td>
+<td><p>80</p></td>
+<td><p>64</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>g10</p></td>
+<td><p>RTX 2080 Ti</p></td>
+<td><p>Turing</p></td>
+<td><p>12 GB</p></td>
+<td><p>n</p></td>
+<td><p>2</p></td>
+<td><p>n</p></td>
+<td><p>7.5</p></td>
+<td><p>68</p></td>
+<td><p>64</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-even"><td><p>g11</p></td>
+<td><p>RTX 2080 Ti</p></td>
+<td><p>Turing</p></td>
+<td><p>12 GB</p></td>
+<td><p>n</p></td>
+<td><p>2</p></td>
+<td><p>n</p></td>
+<td><p>7.5</p></td>
+<td><p>68</p></td>
+<td><p>64</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>g12</p></td>
+<td><p>RTX 2080 Ti</p></td>
+<td><p>Turing</p></td>
+<td><p>12 GB</p></td>
+<td><p>n</p></td>
+<td><p>2</p></td>
+<td><p>n</p></td>
+<td><p>7.5</p></td>
+<td><p>68</p></td>
+<td><p>64</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-even"><td><p>g13</p></td>
+<td><p>A100</p></td>
+<td><p>Ampere</p></td>
+<td><p>80 GB</p></td>
+<td><p>y</p></td>
+<td><p>4</p></td>
+<td><p>y</p></td>
+<td><p>8.0</p></td>
+<td><p>108</p></td>
+<td><p>64</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>g14</p></td>
+<td><p>RTX A6000</p></td>
+<td><p>Ampere</p></td>
+<td><p>48 GB</p></td>
+<td><p>n</p></td>
+<td><p>2</p></td>
+<td><p>y</p></td>
+<td><p>8.6</p></td>
+<td><p>84</p></td>
+<td><p>128</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-even"><td><p>m3</p></td>
+<td><p>Tesla P4</p></td>
+<td><p>Pascal</p></td>
+<td><p>8 GB</p></td>
+<td><p>y</p></td>
+<td><p>1</p></td>
+<td><p>n</p></td>
+<td><p>6.1</p></td>
+<td><p>20</p></td>
+<td><p>128</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>m4</p></td>
+<td><p>Tesla P4</p></td>
+<td><p>Pascal</p></td>
+<td><p>8 GB</p></td>
+<td><p>y</p></td>
+<td><p>1</p></td>
+<td><p>n</p></td>
+<td><p>6.1</p></td>
+<td><p>20</p></td>
+<td><p>128</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-even"><td><p>g303</p></td>
+<td><p>Tesla P4</p></td>
+<td><p>Pascal</p></td>
+<td><p>8 GB</p></td>
+<td><p>y</p></td>
+<td><p>3</p></td>
+<td><p>n</p></td>
+<td><p>6.1</p></td>
+<td><p>20</p></td>
+<td><p>128</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>g304</p></td>
+<td><p>Tesla P4</p></td>
+<td><p>Pascal</p></td>
+<td><p>8 GB</p></td>
+<td><p>y</p></td>
+<td><p>3</p></td>
+<td><p>n</p></td>
+<td><p>6.1</p></td>
+<td><p>20</p></td>
+<td><p>128</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-even"><td><p>g305</p></td>
+<td><p>Tesla P4</p></td>
+<td><p>Pascal</p></td>
+<td><p>8 GB</p></td>
+<td><p>y</p></td>
+<td><p>3</p></td>
+<td><p>n</p></td>
+<td><p>6.1</p></td>
+<td><p>20</p></td>
+<td><p>128</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>g306</p></td>
+<td><p>Tesla P4</p></td>
+<td><p>Pascal</p></td>
+<td><p>8 GB</p></td>
+<td><p>y</p></td>
+<td><p>3</p></td>
+<td><p>n</p></td>
+<td><p>6.1</p></td>
+<td><p>20</p></td>
+<td><p>128</p></td>
+<td><p>535.154.05</p></td>
+<td><p>12.2</p></td>
+</tr>
+</tbody>
+</table>
+<p>NVIDIA GPU nodes supporting CUDA 11.x</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>host</p></th>
+<th class="head"><p>GPU model</p></th>
+<th class="head"><p>Arch</p></th>
+<th class="head"><p>GPU RAM</p></th>
+<th class="head text-right"><p>ECC</p></th>
+<th class="head text-right"><p>nGPUs</p></th>
+<th class="head"><p>NVLink</p></th>
+<th class="head"><p>CC</p></th>
+<th class="head"><p>MPs</p></th>
+<th class="head"><p>cores/MP</p></th>
+<th class="head"><p>GPU driver</p></th>
+<th class="head"><p>CUDA driver</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>g301</p></td>
+<td><p>Tesla K40m</p></td>
+<td><p>Kepler</p></td>
+<td><p>12 GB</p></td>
+<td class="text-right"><p>y</p></td>
+<td class="text-right"><p>2</p></td>
+<td><p>n</p></td>
+<td><p>3.5</p></td>
+<td><p>15</p></td>
+<td><p>192</p></td>
+<td><p>470.57.02</p></td>
+<td><p>11.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>g302</p></td>
+<td><p>Tesla K40m</p></td>
+<td><p>Kepler</p></td>
+<td><p>12 GB</p></td>
+<td class="text-right"><p>y</p></td>
+<td class="text-right"><p>2</p></td>
+<td><p>n</p></td>
+<td><p>3.5</p></td>
+<td><p>15</p></td>
+<td><p>192</p></td>
+<td><p>470.57.02</p></td>
+<td><p>11.4</p></td>
+</tr>
+<tr class="row-even"><td><p>g401</p></td>
+<td><p>Tesla K40m</p></td>
+<td><p>Kepler</p></td>
+<td><p>12 GB</p></td>
+<td class="text-right"><p>y</p></td>
+<td class="text-right"><p>2</p></td>
+<td><p>n</p></td>
+<td><p>3.5</p></td>
+<td><p>15</p></td>
+<td><p>192</p></td>
+<td><p>470.57.02</p></td>
+<td><p>11.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>g402</p></td>
+<td><p>Tesla K40m</p></td>
+<td><p>Kepler</p></td>
+<td><p>12 GB</p></td>
+<td class="text-right"><p>y</p></td>
+<td class="text-right"><p>2</p></td>
+<td><p>n</p></td>
+<td><p>3.5</p></td>
+<td><p>15</p></td>
+<td><p>192</p></td>
+<td><p>470.57.02</p></td>
+<td><p>11.4</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>The product of (MPs)*(cores/MP) is the total number of CUDA cores</p></li>
+<li><p>CC = Compute capability</p></li>
+<li><p>MP = streaming multiprocessors</p></li>
+<li><p>Arch = NVIDIA GPU generation</p></li>
+</ul>
+<p>AMD GPU nodes</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>host</p></th>
+<th class="head"><p>GPU model</p></th>
+<th class="head"><p>GPU RAM size</p></th>
+<th class="head"><p>nGPUs</p></th>
+<th class="head"><p>CUs</p></th>
+<th class="head"><p>cores/CU</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>g500</p></td>
+<td><p>VEGA 20 (gfx906)</p></td>
+<td><p>32 GB</p></td>
+<td><p>8</p></td>
+<td><p>60</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>g501</p></td>
+<td><p>VEGA 20 (gfx906)</p></td>
+<td><p>32 GB</p></td>
+<td><p>8</p></td>
+<td><p>60</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>g502</p></td>
+<td><p>VEGA 20 (gfx906)</p></td>
+<td><p>32 GB</p></td>
+<td><p>8</p></td>
+<td><p>60</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>g503</p></td>
+<td><p>VEGA 20 (gfx906)</p></td>
+<td><p>32 GB</p></td>
+<td><p>8</p></td>
+<td><p>60</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-even"><td><p>g504</p></td>
+<td><p>VEGA 20 (gfx906)</p></td>
+<td><p>32 GB</p></td>
+<td><p>8</p></td>
+<td><p>60</p></td>
+<td><p>64</p></td>
+</tr>
+</tbody>
+</table>
+<p>The produce of (CUs)*(WaveFronts/CU) is the total number of “cores”.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Hoffman2 Cluster" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="matlab-vmem.html" class="btn btn-neutral float-right" title="Matlab Virtual Memory Size" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024. Maintained by UCLA OARC Computational Science Group.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
