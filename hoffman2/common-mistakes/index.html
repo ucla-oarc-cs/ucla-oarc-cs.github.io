@@ -14,7 +14,7 @@
         </script>
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Common Mistakes &mdash; UCLA OARC Computational Science Group</title>
+  <title>Common mistakes to avoid &mdash; UCLA OARC Computational Science Group</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
@@ -64,7 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../workshops/">Workshops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cloud/">Cloud Computing for HPC</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">Hoffman2 Cluster</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Common Mistakes</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Common mistakes to avoid</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#put-qsub-options-before-job-script">Put qsub options before job script</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remove-microsoft-windows-characters-in-job-scripts">Remove Microsoft Windows characters in job scripts</a></li>
 </ul>
@@ -93,7 +93,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../">Hoffman2 Cluster</a></li>
-      <li class="breadcrumb-item active">Common Mistakes</li>
+      <li class="breadcrumb-item active">Common mistakes to avoid</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -102,11 +102,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="common-mistakes">
-<h1>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading"></a></h1>
+  <section id="common-mistakes-to-avoid">
+<h1>Common mistakes to avoid<a class="headerlink" href="#common-mistakes-to-avoid" title="Link to this heading"></a></h1>
 <section id="put-qsub-options-before-job-script">
 <h2>Put qsub options before job script<a class="headerlink" href="#put-qsub-options-before-job-script" title="Link to this heading"></a></h2>
-<p>When submitting a job with <code class="docutils literal notranslate"><span class="pre">qsub</span></code>, it’s important to list any options before the
+<p>When submitting a job with <code class="docutils literal notranslate"><span class="pre">qsub</span></code>, it’s important to list any options <strong>before</strong> the
 name of the job script. For instance, use <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-l</span> <span class="pre">h_data=4G,h_rt=4:00:00</span> <span class="pre">job_script.sh</span></code> to allocate 4GB of data and a 4-hour runtime. If you place
 options after the script name, like <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">job_script.sh</span> <span class="pre">-l</span> <span class="pre">gpu,V100</span></code>, the job
 won’t recognize them, which in this case means it won’t be sent to the V100 GPU
@@ -120,7 +120,7 @@ characters. To resolve this, you can adjust your Windows text editor settings to
 use the Linux-compatible <code class="docutils literal notranslate"><span class="pre">\n</span></code> as the end-of-line character. Alternatively, after
 uploading the file to Hoffman2, you can convert the end-of-line characters by
 executing the <code class="docutils literal notranslate"><span class="pre">dos2unix</span></code> command, like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>hoffman2$ dos2unix job_script.sh
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dos2unix job_script.sh
 </pre></div>
 </div>
 <p>This will ensure your script runs correctly on the cluster.</p>
