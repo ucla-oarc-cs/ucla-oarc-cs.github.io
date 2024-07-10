@@ -14,14 +14,14 @@
         </script>
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RStudio Virtual Memory Size &mdash; UCLA OARC Computational Science Group</title>
+  <title>Common Mistakes &mdash; UCLA OARC Computational Science Group</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/cs.css?v=40389b0d" />
 
   
-    <link rel="canonical" href="https://hpc.oarc.ucla.edu/hoffman2/rstudio-vmem.html" />
+    <link rel="canonical" href="https://hpc.oarc.ucla.edu/hoffman2/common-mistakes.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -36,8 +36,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
-    <link rel="next" title="Interpretation of Wait Time" href="../wait-time/" />
-    <link rel="prev" title="Matlab Virtual Memory Size" href="../matlab-vmem/" /> 
+    <link rel="next" title="GPU Models" href="../gpu/" />
+    <link rel="prev" title="Hoffman2 Cluster" href="../" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -64,10 +64,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../workshops/">Workshops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cloud/">Cloud Computing for HPC</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">Hoffman2 Cluster</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../common-mistakes/">Common Mistakes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Common Mistakes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#put-qsub-options-before-job-script">Put qsub options before job script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remove-microsoft-windows-characters-in-job-scripts">Remove Microsoft Windows characters in job scripts</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../gpu/">GPU Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../matlab-vmem/">Matlab Virtual Memory Size</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">RStudio Virtual Memory Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rstudio-vmem/">RStudio Virtual Memory Size</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../wait-time/">Interpretation of Wait Time</a></li>
 </ul>
 </li>
@@ -89,7 +93,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../">Hoffman2 Cluster</a></li>
-      <li class="breadcrumb-item active">RStudio Virtual Memory Size</li>
+      <li class="breadcrumb-item active">Common Mistakes</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -98,37 +102,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="rstudio-virtual-memory-size">
-<h1>RStudio Virtual Memory Size<a class="headerlink" href="#rstudio-virtual-memory-size" title="Link to this heading"></a></h1>
-<p>2020-06-11</p>
-<p>We report that the virtual memory size of launching RStudio (version 1.1.456)
-is approximately 2.3GB (gigabytes) <em>without</em> loading any user data on
-Hoffman2 Cluster’s compute nodes.
-This is compared to RStudio version 0.98, which consumes approximately 1.6GB of virtual memory at launch time.
-The implication is that a job will have to
-request at least this much memory in order to launch RStudio successfully.</p>
-<p>We launched RStudio 1.1.456 distributed by Anaconda using the following
-commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source /u/local/Modules/default/init/bash
-$ module load anaconda3/2019.03
-$ source $CONDA_DIR/etc/profile.d/conda.sh
-$ conda activate rstudio
-$ rstudio
+  <section id="common-mistakes">
+<h1>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading"></a></h1>
+<section id="put-qsub-options-before-job-script">
+<h2>Put qsub options before job script<a class="headerlink" href="#put-qsub-options-before-job-script" title="Link to this heading"></a></h2>
+<p>When submitting a job with <code class="docutils literal notranslate"><span class="pre">qsub</span></code>, it’s important to list any options before the
+name of the job script. For instance, use <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-l</span> <span class="pre">h_data=4G,h_rt=4:00:00</span> <span class="pre">job_script.sh</span></code> to allocate 4GB of data and a 4-hour runtime. If you place
+options after the script name, like <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">job_script.sh</span> <span class="pre">-l</span> <span class="pre">gpu,V100</span></code>, the job
+won’t recognize them, which in this case means it won’t be sent to the V100 GPU
+node. Always remember: options first, then script name, such as <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-l</span> <span class="pre">gpu,V100</span> <span class="pre">job_script.sh</span></code>.</p>
+</section>
+<section id="remove-microsoft-windows-characters-in-job-scripts">
+<h2>Remove Microsoft Windows characters in job scripts<a class="headerlink" href="#remove-microsoft-windows-characters-in-job-scripts" title="Link to this heading"></a></h2>
+<p>When transferring job script files from a Microsoft Windows system to the
+Hoffman2 Cluster, you may encounter issues with incompatible end-of-line
+characters. To resolve this, you can adjust your Windows text editor settings to
+use the Linux-compatible <code class="docutils literal notranslate"><span class="pre">\n</span></code> as the end-of-line character. Alternatively, after
+uploading the file to Hoffman2, you can convert the end-of-line characters by
+executing the <code class="docutils literal notranslate"><span class="pre">dos2unix</span></code> command, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>hoffman2$ dos2unix job_script.sh
 </pre></div>
 </div>
-<p>The virtual memory size reading was from the <code class="docutils literal notranslate"><span class="pre">top</span></code> command. We have tested
-Rstudio on various CPU models, including Intel Gold (Skylake), Intel E5-2670
-and AMD-6136. The virtual memory size was approximately the same across
-different CPU models.</p>
-<p><img alt="" src="../../_images/rstudio.png" /></p>
+<p>This will ensure your script runs correctly on the cluster.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../matlab-vmem/" class="btn btn-neutral float-left" title="Matlab Virtual Memory Size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../wait-time/" class="btn btn-neutral float-right" title="Interpretation of Wait Time" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../" class="btn btn-neutral float-left" title="Hoffman2 Cluster" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../gpu/" class="btn btn-neutral float-right" title="GPU Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
