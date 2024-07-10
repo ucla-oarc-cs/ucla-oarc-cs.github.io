@@ -65,8 +65,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../cloud/">Cloud Computing for HPC</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">Hoffman2 Cluster</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Common mistakes to avoid</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#put-qsub-options-before-job-script">Put qsub options before job script</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#remove-microsoft-windows-characters-in-job-scripts">Remove Microsoft Windows characters in job scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-submission-qsub-options-positioning">job submission (qsub) options positioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#microsoft-windows-end-of-line-characters-in-job-scripts">Microsoft Windows end-of-line characters in job scripts</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../gpu/">GPU Models</a></li>
@@ -104,16 +104,16 @@
              
   <section id="common-mistakes-to-avoid">
 <h1>Common mistakes to avoid<a class="headerlink" href="#common-mistakes-to-avoid" title="Link to this heading"></a></h1>
-<section id="put-qsub-options-before-job-script">
-<h2>Put qsub options before job script<a class="headerlink" href="#put-qsub-options-before-job-script" title="Link to this heading"></a></h2>
+<section id="job-submission-qsub-options-positioning">
+<h2>job submission (qsub) options positioning<a class="headerlink" href="#job-submission-qsub-options-positioning" title="Link to this heading"></a></h2>
 <p>When submitting a job with <code class="docutils literal notranslate"><span class="pre">qsub</span></code>, it’s important to list any options <strong>before</strong> the
 name of the job script. For instance, use <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-l</span> <span class="pre">h_data=4G,h_rt=4:00:00</span> <span class="pre">job_script.sh</span></code> to allocate 4GB of data and a 4-hour runtime. If you place
 options after the script name, like <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">job_script.sh</span> <span class="pre">-l</span> <span class="pre">gpu,V100</span></code>, the job
 won’t recognize them, which in this case means it won’t be sent to the V100 GPU
 node. Always remember: options first, then script name, such as <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-l</span> <span class="pre">gpu,V100</span> <span class="pre">job_script.sh</span></code>.</p>
 </section>
-<section id="remove-microsoft-windows-characters-in-job-scripts">
-<h2>Remove Microsoft Windows characters in job scripts<a class="headerlink" href="#remove-microsoft-windows-characters-in-job-scripts" title="Link to this heading"></a></h2>
+<section id="microsoft-windows-end-of-line-characters-in-job-scripts">
+<h2>Microsoft Windows end-of-line characters in job scripts<a class="headerlink" href="#microsoft-windows-end-of-line-characters-in-job-scripts" title="Link to this heading"></a></h2>
 <p>When transferring job script files from a Microsoft Windows system to the
 Hoffman2 Cluster, you may encounter issues with incompatible end-of-line
 characters. To resolve this, you can adjust your Windows text editor settings to
